@@ -40,15 +40,16 @@ public class Inventory {
 
     /*
         Guitar searchGuitar: do khách hàng nhập vào
-    */
+    */                          //"fender"
     public Guitar search(Guitar searchGuitar) {
         for (Iterator i = guitars.iterator(); i.hasNext();) {
             
-            
+                //builder: "Collings"
             Guitar guitar = (Guitar) i.next();//1 GUITAR TỪ KHO
             String builder = searchGuitar.getBuilder();//BUILDER TỪ KH NHẬP VÀO
-            //NULLL                    ""                       
-            if ((builder != null) && (!builder.equals("")) && (!builder.equals(guitar.getBuilder())))
+            //NULLL                    ""                        
+                  //true                     true                  true      //"finder"           "//Collings"
+           if ((builder != null) && (!builder.equals("")) && (!builder.equals(guitar.getBuilder())))//true
                 continue;
             String model = searchGuitar.getModel();
             if ((model != null) && (!model.equals("")) && (!model.equals(guitar.getModel())))
