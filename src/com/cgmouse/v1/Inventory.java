@@ -46,13 +46,13 @@ public class Inventory {
             
                 //builder: "Collings"
             Guitar guitar = (Guitar) i.next();//1 GUITAR TỪ KHO
-            String builder = searchGuitar.getBuilder();//BUILDER TỪ KH NHẬP VÀO
+            String builder = searchGuitar.getBuilder().toLowerCase();//BUILDER TỪ KH NHẬP VÀO
             //NULLL                    ""                        
                   //true                     true                  true      //"finder"           "//Collings"
-           if ((builder != null) && (!builder.equals("")) && (!builder.equals(guitar.getBuilder())))//true
+           if ((builder != null) && (!builder.equals("")) && (!builder.equals(guitar.getBuilder().toLowerCase())))//true
                 continue;
             String model = searchGuitar.getModel();
-            if ((model != null) && (!model.equals("")) && (!model.equals(guitar.getModel())))
+            if ((model != null) && (!model.equals("")) && (!model.equalsIgnoreCase(guitar.getModel())))
                 continue;
             String type = searchGuitar.getType();
             if ((type != null) && (!searchGuitar.equals("")) && (!type.equals(guitar.getType())))
