@@ -2,6 +2,7 @@ package com.cgmouse.v4;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Inventory {
@@ -42,9 +43,9 @@ public class Inventory {
         Guitar searchGuitar: do khách hàng nhập vào
         List
     */                          //"fender"
-    public List<Guitar> search(GuitarSpec searchSpec) {
+    public Iterator<Guitar> search(GuitarSpec searchSpec) {
         List<Guitar> matchingGuitars = new ArrayList<>();
-        for (Iterator i = guitars.iterator(); i.hasNext();) {
+        for (Iterator<Guitar> i = guitars.iterator(); i.hasNext();) {
             
             Guitar guitar = (Guitar) i.next();//1 GUITAR TỪ KHO
             GuitarSpec guitarSpec = guitar.getSpec();
@@ -63,7 +64,9 @@ public class Inventory {
                 continue;
             matchingGuitars.add(guitar);
         }
-        return matchingGuitars;
+        return matchingGuitars.iterator();
     }
+
+   
 
 }
