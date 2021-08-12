@@ -2,7 +2,6 @@ package com.cgmouse.v4;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Inventory {
@@ -13,9 +12,10 @@ public class Inventory {
         guitars = new ArrayList<>();
     }
 
-    public void addGuitar(String serialNumber, double price, Builder builder, String model, Type type, Wood backWood,
+    public void addGuitar(String serialNumber, double price, Builder builder, String model, Type type,
+    int numStrings, Wood backWood,
             Wood topWood) {
-        Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
+        Guitar guitar = new Guitar(serialNumber, price, builder, model, type, numStrings, backWood, topWood);
         guitars.add(guitar);
     }
 
@@ -62,6 +62,9 @@ public class Inventory {
             
             if (searchSpec.getTopWood() != guitarSpec.getTopWood())
                 continue;
+            if(searchSpec.getNumStrings() != guitarSpec.getNumStrings())
+                continue;
+
             matchingGuitars.add(guitar);
         }
         return matchingGuitars.iterator();
