@@ -46,25 +46,10 @@ public class Inventory {
         for (Iterator<Guitar> i = guitars.iterator(); i.hasNext();) {
             
             Guitar guitar = (Guitar) i.next();//1 GUITAR TỪ KHO
-            GuitarSpec guitarSpec = guitar.getSpec();
-
-           if (searchSpec.getBuilder() != guitarSpec.getBuilder())//true
-                continue;
-            String model = searchSpec.getModel();
-            if ((model != null) && (!model.equals("")) && (!model.equalsIgnoreCase(guitarSpec.getModel())))
-                continue;
-            if (searchSpec.getType() != guitarSpec.getType())
-                continue;
-            if (searchSpec.getBackWood() != guitarSpec.getBackWood())
-                continue;
-            
-            if (searchSpec.getTopWood() != guitarSpec.getTopWood())
-                continue;
-            if(searchSpec.getNumStrings() != guitarSpec.getNumStrings())
-                continue;
-
-            matchingGuitars.add(guitar);
+            if(guitar.getSpec().matches(searchSpec))
+                matchingGuitars.add(guitar);
         }
+        
         return matchingGuitars.iterator();
     }
 
