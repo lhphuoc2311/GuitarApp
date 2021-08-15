@@ -16,7 +16,8 @@ public class GuitarTestDrive {
                 // NGƯỜI DÙNG
                 // TÌM
                 Iterator<Guitar> matchingGuitars = inventory.search(guitarSpec);
-                if (matchingGuitars != null) {
+
+                if (matchingGuitars.hasNext()) {
                         for (; matchingGuitars.hasNext();) {
                                 Guitar guitar = (Guitar) matchingGuitars.next();
                                 GuitarSpec spec = guitar.getSpec();
@@ -26,6 +27,7 @@ public class GuitarTestDrive {
                                                 + "  phía trên. \n Bạn có thể sở hữu nó chỉ với giá $"
                                                 + guitar.getPrice() + "!");
                         }
+
                 } else {
                         System.out.println("Xin lỗi bạn, không tìm được cây đàn nào cho bạn cả");
                 }
